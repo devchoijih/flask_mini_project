@@ -23,9 +23,6 @@ def create_app():
     # TODO: 모델을 import 하세요 (예: from . import models.py)
     from . import models
 
-    with engine.begin() as conn:
-        conn.execute(text("DROP TABLE IF EXISTS reviews;"))
-
     # TODO: DB 테이블을 생성하세요 (Base.metadata.create_all)
     Base.metadata.create_all(bind=engine)
 
