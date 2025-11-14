@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import render_template, Flask
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, declarative_base, scoped_session
 from .config import Config
@@ -25,6 +25,18 @@ def create_app():
 
     # TODO: DB 테이블을 생성하세요 (Base.metadata.create_all)
     Base.metadata.create_all(bind=engine)
+
+    @app.route("/")
+    def index():
+        return render_template("index.html")
+
+    @app.route("/edit")
+    def edit():
+        return render_template("edit.html")
+
+    @app.route("/edit/<int:review_id>")
+    def edit_update(review_id):
+        return render_template("edit.html", review_id=review_id)
 
     # TODO: 라우트 블루프린트를 등록하세요 (review_routes 불러와서 app.register_blueprint)
     from routes import review_bp
