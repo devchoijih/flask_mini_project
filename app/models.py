@@ -9,8 +9,8 @@ class Review(Base):
 
     id = Column(Integer, primary_key=True, index=True)
     title = Column(String, nullable=False)
-    content = Column(Text, nullable=False)
-    rating = Column(Integer, nullable=False)
+    contents = Column(Text, nullable=False)
+    score = Column(Integer)
 
     def __repr__(self):
         return f"<Review {self.title}>"
