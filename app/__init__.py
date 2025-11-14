@@ -1,5 +1,5 @@
 from flask import render_template, Flask
-from sqlalchemy import create_engine
+from sqlalchemy import create_engine, text
 from sqlalchemy.orm import sessionmaker, declarative_base, scoped_session
 from .config import Config
 
@@ -22,6 +22,9 @@ def create_app():
 
     # TODO: 모델을 import 하세요 (예: from . import models.py)
     from . import models
+
+    with engine.begin() as conn:
+        conn.execute(text("DROP TABLE IF EXISTS reviews;"))
 
     # TODO: DB 테이블을 생성하세요 (Base.metadata.create_all)
     Base.metadata.create_all(bind=engine)
