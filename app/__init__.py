@@ -1,7 +1,7 @@
 from flask import Flask
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, declarative_base, scoped_session
-from .models import Config
+from .config import Config
 
 # TODO: DB 연결 엔진을 생성하세요 (create_engine)
 engine = create_engine(
