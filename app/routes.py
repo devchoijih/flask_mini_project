@@ -1,4 +1,5 @@
-from .models import SessionLocal, Review
+from __init__ import SessionLocal
+from models import Review
 from flask import request, jsonify, Blueprint, redirect, url_for
 
 review_bp = Blueprint("review", __name__)
