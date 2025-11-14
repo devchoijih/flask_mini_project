@@ -39,7 +39,7 @@ def create_app():
         return render_template("edit.html", review_id=review_id)
 
     # TODO: 라우트 블루프린트를 등록하세요 (review_routes 불러와서 app.register_blueprint)
-    from routes import review_bp
+    from .routes import review_bp
     app.register_blueprint(review_bp)
 
     # 요청이 끝날 때마다 세션 닫기
